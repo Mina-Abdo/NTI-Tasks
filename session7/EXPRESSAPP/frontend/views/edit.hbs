@@ -1,0 +1,16 @@
+{{>header}}
+{{>navbar}}
+<form>
+ 
+  <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Name" name="name" value="{{user.name}}">
+  </div>
+   <div class="mb-3">
+    <input type="email" class="form-control" placeholder="Email" name="email" value="{{user.email}}">
+  </div>
+ <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Age" name="age" value="{{user.age}}">
+  </div>
+  <button class="btn btn-primary">Edit</button>
+</form>
+{{>footer}}
