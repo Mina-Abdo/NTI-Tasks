@@ -24,14 +24,15 @@
         <a href="/addcomment/{{user._id}}" class="btn btn-primary ms-3">Add Comment</a>
       </td>
     </tr>
+    {{#each user.comments}}
     <tr>
         <th></th>
         <td></td>
         <td></td>
-        <td>{{user.comments}}</td>
+        <td>{{this.comment}}</td>
         <td></td>
     </tr>
-   {{!-- , articles[userId].comments --}}
+    {{/each}}
   </tbody>
 </table>
 
