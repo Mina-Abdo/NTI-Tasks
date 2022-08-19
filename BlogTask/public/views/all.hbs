@@ -1,0 +1,25 @@
+{{>header}}
+{{>navbar}}
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col" >#</td>
+        <th scope="col">Article Title</td>
+        <th scope="col">Article Content</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <th scope="row">{{this._id}}</td>
+            <td>{{this.article.title}}</td>
+            <td>{{this.article.content}}</td>
+            <td>
+                <a href="/single/{{this._id}}" class="btn btn-primary ms-3">Single</a>
+                <a href="/edit/{{this._id}}" class="btn btn-success ms-3">edit</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{>footer}}

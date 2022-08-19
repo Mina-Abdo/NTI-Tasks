@@ -1,0 +1,39 @@
+{{>header}}
+{{>navbar}}
+{{#unless user}}
+
+<div class="alert alert-danger">Not found</div>
+{{else}}
+<table class="table" class="m-4">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Article Title</th>
+      <th scope="col">Article Content</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{user._id}}</th>
+      <td>{{user.article.title}}</td>
+      <td>{{user.article.content}}</td>
+      <td></td>
+      <td>
+        <a href="/addcomment/{{user._id}}" class="btn btn-primary ms-3">Add Comment</a>
+      </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td></td>
+        <td></td>
+        <td>{{user.comments}}</td>
+        <td></td>
+    </tr>
+   {{!-- , articles[userId].comments --}}
+  </tbody>
+</table>
+
+{{/unless}}
+{{>footer}}
