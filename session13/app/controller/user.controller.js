@@ -23,7 +23,6 @@ class User{
         try{
             const allUsers = await userModel.find()
             
-            
             res.send({
                 apistatus:true, message:"all users" , data:allUsers
             })
@@ -94,9 +93,23 @@ class User{
             if(balanceOperation == "withdraw"){req.user.balance = req.user.balance - req.body.operationBalance}
             else {req.user.balance = req.user.balance + req.body.operationBalance}
             await req.user.save()
+            res.send({apistatus:true, message:"Edited balance", data:req.user})
         }
         catch(e){res.send({apistatus:false, data:e.message})}
-        res.send({apistatus:true, message:"Edited balance", data:req.user})
+        
+    }
+    static logout = async (req,res)=>{
+        try{
+            if(req.body.tokenId){
+                const tokenIndex =  req.user.tokens.findIndex(t=> t._id==req.params.id)
+                req.user.tokens.splice(tokenIndex , 1)
+            }
+            
+            else req.user.tokens=[]
+            await req.user.save()
+            res.send({apistatus:true, message:"user logged out", data:req.user})
+        }
+        catch(e){res.send({apistatus:false, data:e.message})}
     }
 
 }

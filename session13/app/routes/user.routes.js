@@ -11,6 +11,8 @@ router.put("/edit" ,authenticate, userController.edit)
 router.post("/addAddr" ,authenticate, userController.addAddr)
 router.put("/editAddr/:id" ,authenticate, userController.editAddr)
 router.put("/balanceProccess" ,authenticate, userController.balanceProccess)
+router.get("/logout/:id" ,authenticate, userController.logout)
+
 
 
 
