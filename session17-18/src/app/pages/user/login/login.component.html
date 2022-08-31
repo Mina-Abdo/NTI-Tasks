@@ -1,0 +1,21 @@
+<form class="mt-5" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+    <div class="mb-3">
+        <label class="form-label">User name</label>
+        <input class="form-control" placeholder="username" formControlName="username">
+        <div *ngIf="username?.['invalid']" class="alert alert-danger">
+            <p *ngIf="username?.['errors']?.['required']">required</p>
+            <p *ngIf="username?.['errors']?.['minlength']">minlength</p>
+            <p *ngIf="username?.['errors']?.['maxlength']">maxlength</p>
+        </div>
+      </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input class="form-control" placeholder="password" formControlName="password">
+      <div *ngIf="password?.['invalid']" class="alert alert-danger">
+        <p *ngIf="password?.['errors']?.['required']">required</p>
+    </div>
+      
+    </div>
+
+    <button  class="btn btn-primary">Login</button>
+  </form>
